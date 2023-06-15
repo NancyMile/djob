@@ -43,7 +43,7 @@
                 Create Account
             </x-link>
         </div>
-        <x-primary-button class="ml-3">
+        <x-primary-button class="w-full justify-center">
             {{ __('Log in') }}
         </x-primary-button>
     </form>
