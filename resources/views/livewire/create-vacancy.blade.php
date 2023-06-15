@@ -22,7 +22,11 @@
         <select name="category" id="category" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300
         focus:border-indigo-500 dark:focus:border-indigo-600
         focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full">
-            <option value="">-- Select category --</option>
+            <option value="">-- Select --</option>
+            @foreach ($categories as $category )
+                <option value="{{ $category->id }}">{{ $category->category }}-</option>
+                
+            @endforeach
         </select>
         <x-input-error :messages="$errors->get('category')" class="mt-2" />
     </div>
