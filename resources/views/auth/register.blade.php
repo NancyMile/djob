@@ -16,6 +16,19 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        <!-- Acccount Type -->
+        <div class="mt-4">
+            <x-input-label for="role" :value="__('Account Type')" />
+            <select name="role" id="role" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300
+            focus:border-indigo-500 dark:focus:border-indigo-600
+            focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full">
+            <option value="">-- Select Type --</option>
+            <option value="1">Developer - Get a job</option>
+            <option value="2">Recruiter - Publish Jobs</option>
+            </select>
+            <x-input-error :messages="$errors->get('role')" class="mt-2" />
+        </div>
+
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
