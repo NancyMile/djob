@@ -62,6 +62,11 @@
     <div>
         <x-input-label for="image" :value="__('image')" />
         <x-text-input id="image" class="block mt-1 w-full" type="file" wire:model="image" accept="image/*"/>
+        <div class="my-5 w-90">
+            @if ($image)
+                Image: <img src="{{ $image->temporaryUrl() }}" alt="temp"/>
+            @endif
+        </div>
         @error('image')
             <livewire:display-alert :message="$message" />
         @enderror
