@@ -18,7 +18,7 @@ class CreateVacancy extends Component
     public $image;
 
     protected $rules = [
-        'titulo' => 'required|string',
+        'title' => 'required|string',
         'salary' => 'required',
         'category' => 'required',
         'company' => 'required',
@@ -27,6 +27,12 @@ class CreateVacancy extends Component
         'image' => 'required',
     ];
 
+    public function createVacancy()
+    {
+        //this will apply the previous rules
+        /** si para la validacion los valores se pasan a $datos, si no los errores se muestran en pantalla */
+        $data = $this->validate();
+    }
 
     public function render()
     {
