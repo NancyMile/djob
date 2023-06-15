@@ -2,10 +2,11 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Category;
 use App\Models\Salary;
-use Doctrine\Inflector\Rules\English\Rules;
 use Livewire\Component;
+use App\Models\Category;
+use Livewire\WithFileUploads;
+use Doctrine\Inflector\Rules\English\Rules;
 
 class CreateVacancy extends Component
 {
@@ -17,6 +18,8 @@ class CreateVacancy extends Component
     public $description;
     public $image;
 
+    use WithFileUploads;
+
     protected $rules = [
         'title' => 'required|string',
         'salary' => 'required',
@@ -24,7 +27,7 @@ class CreateVacancy extends Component
         'company' => 'required',
         'last_day' => 'required',
         'description' => 'required',
-        'image' => 'required',
+        'image' => 'required|image|max:1024',
     ];
 
     public function createVacancy()

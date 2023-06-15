@@ -61,7 +61,7 @@
     </div>
     <div>
         <x-input-label for="image" :value="__('image')" />
-        <x-text-input id="image" class="block mt-1 w-full" type="file" wire:model="image" />
+        <x-text-input id="image" class="block mt-1 w-full" type="file" wire:model="image" accept="image/*"/>
         @error('image')
             <livewire:display-alert :message="$message" />
         @enderror
