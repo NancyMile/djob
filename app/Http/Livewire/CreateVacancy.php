@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Salary;
 use Livewire\Component;
 use App\Models\Category;
+use App\Models\Vacancy;
 use Livewire\WithFileUploads;
 use Doctrine\Inflector\Rules\English\Rules;
 
@@ -14,7 +15,7 @@ class CreateVacancy extends Component
     public $salary;
     public $category;
     Public $company;
-    public $last_day;
+    public $last_date;
     public $description;
     public $image;
 
@@ -25,7 +26,7 @@ class CreateVacancy extends Component
         'salary' => 'required',
         'category' => 'required',
         'company' => 'required',
-        'last_day' => 'required',
+        'last_date' => 'required',
         'description' => 'required',
         'image' => 'required|image|max:1024',
     ];
@@ -39,9 +40,20 @@ class CreateVacancy extends Component
         //save the image
         $image = $this->image->store('public/vacancies');
         //dd($image);//"public/vacancies/EZX6NqUJdHkLqD8PqjXo4WBI4l7nU9q3I3LuVFsS.jpg" /
-        $image_name = str_replace('public/vacancies/','',$image);
+        $data['image'] = str_replace('public/vacancies/','',$image);
 
         //save vacancy
+        // In this case can't access to the reques, but can acess to data
+        Vacancy::create([
+            'title' => $data['title'],
+            'salary_id' => $data['salary'],
+            'category_id' => $data['category'],
+            'company' => $data['company'],
+            'last_date' => $data['last_date'],
+            'description' => $data['description'],
+            'image' => $data['image'],
+            'user_id' => auth()->user()->id,
+        ]);
 
         //display message
 
