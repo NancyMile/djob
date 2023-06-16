@@ -17,8 +17,15 @@
             <p class=" font-bold text-sm text-gray-800 my-3 uppercase">
                 Company: <span class="normal-case font-normal">{{ $vacancy->company }}</span>
             </p>
-            
-
+        </div>
+    </div>
+    <div class="md:grid md:grid-cols-6 gap-4">
+        <div class="md:col-span-2">
+            <img src="{{ asset('storage/vacancies/'.$vacancy->image) }}" alt="{{$vacancy->title}}">
+        </div>
+        <div class="md:col-span-4">
+            <h2 class="text-2xl font-bold  mb-5">Description</h2>
+            <p>{{ $vacancy->description }}</p>
         </div>
     </div>
 </div>
