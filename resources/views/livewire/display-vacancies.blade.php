@@ -12,7 +12,7 @@
                 <a href="" class=" text-center bg-slate-600 p-2 text-white rounded-lg text-xs font-bold uppercase py-2 px-4">
                     Applicants
                 </a>
-                <a href="" class=" text-center bg-blue-600 p-2 text-white rounded-lg text-xs font-bold uppercase py-2 px-4">
+                <a href="{{ route('vacancies.edit', $vacancy->id) }}" class=" text-center bg-blue-600 p-2 text-white rounded-lg text-xs font-bold uppercase py-2 px-4">
                     Edit
                 </a>
                 <a href="" class=" text-center bg-red-600 p-2 text-white rounded-lg text-xs font-bold uppercase py-2 px-4">
