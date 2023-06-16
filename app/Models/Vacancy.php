@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Vacancy extends Model
 {
     use HasFactory;
+
+    protected $casts = ['last_date' => 'datetime'];
 
     protected $fillable = [
         'title',
