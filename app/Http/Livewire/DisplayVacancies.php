@@ -14,6 +14,14 @@ class DisplayVacancies extends Component
     //     dd('Desde prueba '.$vacancy_id);
     // }
 
+    protected $listeners = ['deleteVacancy'];
+
+    public function deleteVacancy(Vacancy $vacancy)
+    {
+        //dd('Deleting ...'.$vacancy->id);
+        $vacancy->delete();
+    }
+
     public function render()
     {
         $vacancies = Vacancy::where('user_id', auth()->user()->id)->paginate(10);
