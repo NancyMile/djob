@@ -7,6 +7,7 @@ use Livewire\Component;
 use App\Models\Category;
 use App\Models\Vacancy;
 use Carbon\Carbon;
+use Livewire\WithFileUploads;
 
 class EditVacancy extends Component
 {
@@ -18,6 +19,9 @@ class EditVacancy extends Component
     public $last_date;
     public $description;
     public $image;
+    public $new_image;
+
+    use WithFileUploads;
 
     protected $rules = [
         'title' => 'required|string',
@@ -25,7 +29,8 @@ class EditVacancy extends Component
         'category' => 'required',
         'company' => 'required',
         'last_date' => 'required',
-        'description' => 'required'
+        'description' => 'required',
+        'new_image' => 'nullable|image|max:1024'
     ];
 
     public function mount(Vacancy $vacancy)

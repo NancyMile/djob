@@ -62,13 +62,13 @@
 
 
     <div>
-        <x-input-label for="image" :value="__('image')" />
-        <x-text-input id="image" class="block mt-1 w-full" type="file" wire:model="image" accept="image/*"/>
+        <x-input-label for="new_image" :value="__('image')" />
+        <x-text-input id="new_image" class="block mt-1 w-full" type="file" wire:model="new_image" accept="image/*"/>
         <div class="my-5 w-90">
             <x-input-label :value="__('Curent image')" />
                 <img src="{{ asset('storage/vacancies/'.$image) }}" alt="{{ $title }}"/>
         </div>
-        @error('image')
+        @error('new_image')
             <livewire:display-alert :message="$message" />
         @enderror
     </div>
