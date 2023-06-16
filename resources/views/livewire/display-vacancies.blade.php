@@ -16,9 +16,9 @@
                     <a href="{{ route('vacancies.edit', $vacancy->id) }}" class=" text-center bg-blue-600 p-2 text-white rounded-lg text-xs font-bold uppercase py-2 px-4">
                         Edit
                     </a>
-                    <a href="" class=" text-center bg-red-600 p-2 text-white rounded-lg text-xs font-bold uppercase py-2 px-4">
+                    <button wire:click="$emit('prueba',{{ $vacancy->id}})" class=" text-center bg-red-600 p-2 text-white rounded-lg text-xs font-bold uppercase py-2 px-4">
                         Delete
-                    </a>
+                    </button>
                 </div>
             </div>
         @empty
@@ -32,22 +32,26 @@
 @push('scripts')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        Swal.fire({
-            title: 'Do you want to delete the vacancy?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
-            }
+        Livewire.on('prueba',(vacancy_id)=>{
+            alert('Desde js '+vacancy_id);
         })
+
+        // Swal.fire({
+        //     title: 'Do you want to delete the vacancy?',
+        //     text: "You won't be able to revert this!",
+        //     icon: 'warning',
+        //     showCancelButton: true,
+        //     confirmButtonColor: '#3085d6',
+        //     cancelButtonColor: '#d33',
+        //     confirmButtonText: 'Yes, delete it!'
+        // }).then((result) => {
+        //     if (result.isConfirmed) {
+        //         Swal.fire(
+        //             'Deleted!',
+        //             'Your file has been deleted.',
+        //             'success'
+        //         )
+        //     }
+        // })
     </script>
 @endpush
