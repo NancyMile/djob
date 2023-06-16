@@ -44,6 +44,7 @@ class VacancyController extends Controller
      */
     public function edit(Vacancy $vacancy)
     {
+        $this->authorize('update', $vacancy);
         //Thasnk to the relation route model binding  we can call vacancy model
         //dd($vacancy);
         return view('vacancies.edit',[
