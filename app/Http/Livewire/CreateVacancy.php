@@ -35,6 +35,17 @@ class CreateVacancy extends Component
         //this will apply the previous rules
         /** si para la validacion los valores se pasan a $datos, si no los errores se muestran en pantalla */
         $data = $this->validate();
+
+        //save the image
+        $image = $this->image->store('public/vacancies');
+        //dd($image);//"public/vacancies/EZX6NqUJdHkLqD8PqjXo4WBI4l7nU9q3I3LuVFsS.jpg" /
+        $image_name = str_replace('public/vacancies/','',$image);
+
+        //save vacancy
+
+        //display message
+
+        //redirect
     }
 
     public function render()
