@@ -10,6 +10,7 @@ use Carbon\Carbon;
 
 class EditVacancy extends Component
 {
+    public $vacancy_id;
     public $title;
     public $salary;
     public $category;
@@ -29,6 +30,7 @@ class EditVacancy extends Component
 
     public function mount(Vacancy $vacancy)
     {
+        $this->vacancy_id = $vacancy->id;
         $this->title = $vacancy->title;
         $this->salary = $vacancy->salary_id;
         $this->category = $vacancy->category_id;
@@ -41,6 +43,26 @@ class EditVacancy extends Component
     public function editVacancy()
     {
         $data = $this->validate();
+
+        //check i thre is a new image
+
+        //find the vacancy to be dited
+        $vacancy = Vacancy::find($this->vacancy_id);
+
+        //asign the value, we ar replacing the values of the  existing  ones on db
+        $vacancy->title =  $data['title'];
+        $vacancy->salary_id = $data['salary'];
+        $vacancy->category_id = $data['category'];
+        $vacancy->company = $data['company'];
+        $vacancy->last_date = $data['last_date'];
+        $vacancy->description = $data['description'];
+
+        //save the changes
+        $vacancy->save();
+
+        //redirect
+        session()->flash('message','The changes has been saved!');
+        return redirect()->route('vacancies.index');
     }
 
     public function render()
