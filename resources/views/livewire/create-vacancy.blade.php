@@ -44,9 +44,9 @@
         @enderror
     </div>
     <div>
-        <x-input-label for="last_day" :value="__('Open until ')" />
-        <x-text-input id="last_day" class="block mt-1 w-full" type="date" wire:model="last_day" :value="old('last_day')" />
-        @error('last_day')
+        <x-input-label for="last_date" :value="__('Open until ')" />
+        <x-text-input id="last_date" class="block mt-1 w-full" type="date" wire:model="last_date" :value="old('last_date')" />
+        @error('last_date')
             <livewire:display-alert :message="$message" />
         @enderror
     </div>
