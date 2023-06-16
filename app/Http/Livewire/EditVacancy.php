@@ -50,6 +50,10 @@ class EditVacancy extends Component
         $data = $this->validate();
 
         //check i thre is a new image
+        if($this->new_image){
+            $image =$this->new_image->store('public/vacancies');
+            $data['image'] = str_replace('public/vacancies/','',$image);
+        }
 
         //find the vacancy to be dited
         $vacancy = Vacancy::find($this->vacancy_id);
@@ -61,6 +65,7 @@ class EditVacancy extends Component
         $vacancy->company = $data['company'];
         $vacancy->last_date = $data['last_date'];
         $vacancy->description = $data['description'];
+        $vacancy->image =$datos['image'] ?? $vacancy->image; //if thre is anew image assign that one  otherwise assign the one on db
 
         //save the changes
         $vacancy->save();

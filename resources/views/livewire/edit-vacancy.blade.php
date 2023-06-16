@@ -65,9 +65,16 @@
         <x-input-label for="new_image" :value="__('image')" />
         <x-text-input id="new_image" class="block mt-1 w-full" type="file" wire:model="new_image" accept="image/*"/>
         <div class="my-5 w-90">
-            <x-input-label :value="__('Curent image')" />
+            <x-input-label :value="__('Current image')" />
                 <img src="{{ asset('storage/vacancies/'.$image) }}" alt="{{ $title }}"/>
         </div>
+
+        <div class="my-5 w-90">
+            @if ($new_image)
+                Image: <img src="{{ $new_image->temporaryUrl() }}" alt="temp"/>
+            @endif
+        </div>
+
         @error('new_image')
             <livewire:display-alert :message="$message" />
         @enderror
