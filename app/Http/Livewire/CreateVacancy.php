@@ -56,8 +56,10 @@ class CreateVacancy extends Component
         ]);
 
         //display message
+        session()->flash('message','The new job has been saved!');
 
         //redirect
+        return redirect()->route('vacancies.index');
     }
 
     public function render()
