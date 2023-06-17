@@ -30,7 +30,8 @@ class VacancyPolicy
      */
     public function create(User $user): bool
     {
-        //
+        // check that the logged user role is 2 (recruiter)
+        return $user->role === 2;
     }
 
     /**

@@ -22,6 +22,7 @@ class VacancyController extends Controller
      */
     public function create()
     {
+        $this->authorize('create',Vacancy::class);
         return view('vacancies.create');
     }
 
