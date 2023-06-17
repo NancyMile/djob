@@ -33,4 +33,7 @@
             <p>Apply  <a href="{{ route('register') }}" class="font-bold text-indigo-600"> Create Account</a></p>
         </div>
     @endguest
+    @cannot('create','App\\Models\Vacancy')
+        <livewire:apply-vacancy/>
+    @endcannot
 </div>
