@@ -13,7 +13,8 @@ class VacancyPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        // check that the logged user is role code 2 (recruiter)
+        return $user->role === 2;
     }
 
     /**

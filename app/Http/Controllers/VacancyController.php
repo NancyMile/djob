@@ -12,6 +12,8 @@ class VacancyController extends Controller
      */
     public function index()
     {
+        //call the methos of policy as the stance was not required on the methos, we add the model here Vacancy::class
+        $this->authorize('viewAny', Vacancy::class);
         return view('vacancies.index');
     }
 
