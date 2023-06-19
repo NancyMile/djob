@@ -34,6 +34,6 @@
         </div>
     @endguest
     @cannot('create','App\\Models\Vacancy')
-        <livewire:apply-vacancy/>
+        <livewire:apply-vacancy :vacancy="$vacancy"/>
     @endcannot
 </div>

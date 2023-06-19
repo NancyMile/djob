@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use DateTime;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Applicant;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Vacancy extends Model
 {
@@ -31,5 +32,10 @@ class Vacancy extends Model
     public function salary()
     {
         return $this->belongsTo(Salary::class);
+    }
+
+    public function applicants()
+    {
+        return $this->hasMany(Applicant::class);
     }
 }
