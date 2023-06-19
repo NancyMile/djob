@@ -43,7 +43,10 @@ class ApplyVacancy extends Component
         //create notification and send email
 
         //display a success message
+        session()->flash('message',' Thanks for applying, resume sent!');
+        return redirect()->back();
     }
+
 
     public function render()
     {
