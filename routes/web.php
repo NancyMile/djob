@@ -18,7 +18,7 @@ use App\Http\Controllers\NotificationController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/dashboard',[VacancyController::class,'index'])->middleware(['auth', 'verified'])->name('vacancies.index');
 Route::get('/vacancies/create',[VacancyController::class,'create'])->middleware(['auth', 'verified'])->name('vacancies.create');
@@ -33,6 +33,6 @@ Route::middleware('auth')->group(function () {
 });
 
 //notifications
-Route::get('/notifications',NotificationController::class)->name('notifications');
+Route::get('/notifications',NotificationController::class)->middleware(['auth', 'verified','role.recruiter'])->name('notifications');
 
 require __DIR__.'/auth.php';
