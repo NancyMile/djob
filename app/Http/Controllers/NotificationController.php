@@ -11,6 +11,13 @@ class NotificationController extends Controller
      */
     public function __invoke(Request $request)
     {
-        dd('Desde notification controller');
+        //dd('Desde notification controller');
+
+        // only unread notifications
+        $notifications = auth()->user()->unreadNotifications;
+
+        return view('notifications.index',[
+            'notifications' => $notifications,
+        ]);
     }
 }
