@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Vacancy;
+use App\Notifications\NewApplicant;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -41,6 +42,8 @@ class ApplyVacancy extends Component
         ]);
 
         //create notification and send email
+        //the method vacancy has the relation recruiter, then by using notify pass the notification
+        $this->vacancy->recruiter->notify(new NewApplicant($this->vacancy->id,$this->vacancy->title,auth()->user()->id));
 
         //display a success message
         session()->flash('message',' Thanks for applying, resume sent!');

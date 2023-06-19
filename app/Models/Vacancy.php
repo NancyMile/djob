@@ -38,4 +38,10 @@ class Vacancy extends Model
     {
         return $this->hasMany(Applicant::class);
     }
+
+    public function recruiter()
+    {
+        //a recruiter created this vacancy on vacancies table is the user_id
+        return $this->belongsTo(User::class,'user_id');
+    }
 }
