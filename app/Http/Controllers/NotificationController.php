@@ -16,6 +16,9 @@ class NotificationController extends Controller
         // only unread notifications
         $notifications = auth()->user()->unreadNotifications;
 
+        //clear notifications
+        auth()->user()->unreadNotifications->markAsRead();
+
         return view('notifications.index',[
             'notifications' => $notifications,
         ]);
