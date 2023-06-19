@@ -10,7 +10,7 @@
                     <p class=" text-sm text-gray-500">Last day: {{ $vacancy->last_date->format('d/m/Y')}}</p>
                 </div>
                 <div class=" flex flex-col items-stretch gap-3 items-center mt-5 md:mt-0 md:flex-row">
-                    <a href="" class=" text-center bg-slate-600 p-2 text-white rounded-lg text-xs font-bold uppercase py-2 px-4">
+                    <a href="{{ route('applicants.index', $vacancy) }}" class=" text-center bg-slate-600 p-2 text-white rounded-lg text-xs font-bold uppercase py-2 px-4">
                         Applicants
                     </a>
                     <a href="{{ route('vacancies.edit', $vacancy->id) }}" class=" text-center bg-blue-600 p-2 text-white rounded-lg text-xs font-bold uppercase py-2 px-4">
