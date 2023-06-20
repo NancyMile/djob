@@ -26,6 +26,9 @@ class HomeVacancies extends Component
         $vacancies = Vacancy::when($this->word, function($query){
             $query->where('title','LIKE',"%".$this->word."%");
         })
+        ->when($this->word,function($query){
+            $query->orWhere('company','LIKE',"%".$this->word."%");
+        })
         ->when($this->category,function($query){
             $query->where('category_id','=',$this->category);
         })
