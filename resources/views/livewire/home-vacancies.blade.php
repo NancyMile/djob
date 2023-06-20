@@ -13,6 +13,12 @@
                             <p class="text-base text-gray-600 mb-3">
                                 {{ $vacancy->company }}
                             </p>
+                            <p class="text-xs text-gray-600 font-bold mb-3">
+                                {{ $vacancy->category->category }}
+                            </p>
+                            <p class="text-xs text-gray-600 mb-3">
+                                {{ $vacancy->salary->salary }}
+                            </p>
                             <p class="font-bold text-xs text-gray-600">
                                 Open till: <span class="font-normal">{{ $vacancy->last_date->format('d-m-Y')}}</span>
                             </p>
