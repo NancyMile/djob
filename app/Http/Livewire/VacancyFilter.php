@@ -14,7 +14,8 @@ class VacancyFilter extends Component
 
     public  function readDataForm()
     {
-        dd('Searching...');
+        //dd('Searching...');
+        $this->emit('gosearch',$this->word,$this->category,$this->salary);
     }
 
     public function render()
