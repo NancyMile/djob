@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AplicantController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VacancyController;
@@ -17,9 +18,7 @@ use App\Http\Controllers\NotificationController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/',HomeController::class)->name('home');
 
 Route::get('/dashboard',[VacancyController::class,'index'])->middleware(['auth', 'verified','role.recruiter'])->name('vacancies.index');
 Route::get('/vacancies/create',[VacancyController::class,'create'])->middleware(['auth', 'verified'])->name('vacancies.create');
