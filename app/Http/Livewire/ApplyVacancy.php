@@ -33,7 +33,7 @@ class ApplyVacancy extends Component
         //save resume on disk
         $resume = $this->resume->store('public/resumes');
         //dd($resume);//"public/resumes/resume.pdf"
-        $data['resume'] = str_replace('public/resume/','',$resume);
+        $data['resume'] = str_replace('public/resumes/','',$resume);
 
         //create applycant to vacancy
         $this->vacancy->applicants()->create([
