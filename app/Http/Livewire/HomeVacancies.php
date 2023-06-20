@@ -25,7 +25,14 @@ class HomeVacancies extends Component
         //$vacancies = Vacancy::all();
         $vacancies = Vacancy::when($this->word, function($query){
             $query->where('title','LIKE',"%".$this->word."%");
-        })->get();
+        })
+        ->when($this->category,function($query){
+            $query->where('category_id','=',$this->category);
+        })
+        ->when($this->salary,function($query){
+            $query->where('salary_id','=',$this->salary);
+        })
+        ->get();
 
         return view('livewire.home-vacancies',[
             'vacancies' => $vacancies
