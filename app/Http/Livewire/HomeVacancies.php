@@ -22,7 +22,11 @@ class HomeVacancies extends Component
 
     public function render()
     {
-        $vacancies = Vacancy::all();
+        //$vacancies = Vacancy::all();
+        $vacancies = Vacancy::when($this->word, function($query){
+            $query->where('title','LIKE',"%".$this->word."%");
+        })->get();
+
         return view('livewire.home-vacancies',[
             'vacancies' => $vacancies
         ]);
